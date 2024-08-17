@@ -14,4 +14,10 @@ public class PasswordStrengthMeterTest {
         assertEquals(PasswordStrength.STRONG, result);
     }
 
+    @Test
+    void meetsOtherCriteriaExpectForLengthThenNormal() {
+        PasswordStrengthMeter meter = new PasswordStrengthMeter();
+        PasswordStrength result = meter.meter("ab12!@A"); // Expected: NORMAL
+        assertEquals(PasswordStrength.NORMAL, result);
+    }
 }
